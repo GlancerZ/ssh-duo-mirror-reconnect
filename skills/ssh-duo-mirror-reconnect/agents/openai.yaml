@@ -1,0 +1,4 @@
+interface:
+  display_name: "SSH Duo Mirror Reconnect"
+  short_description: "Recover SSH with Duo Push through iPhone Mirroring"
+  default_prompt: "Use $ssh-duo-mirror-reconnect to recover my configured SSH host and verify the remote Codex connection."
