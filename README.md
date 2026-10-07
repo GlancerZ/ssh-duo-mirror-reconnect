@@ -10,6 +10,9 @@ A reusable Codex skill for recovering an existing Duo-protected SSH connection o
 2. When needed, restore the alias through one interactive SSH session and approve only its matching Duo Push through the already paired mirror.
 3. Verify remote Codex with a current read-only operation, filtering responses before they enter model context.
 4. Reuse private routing hints and load troubleshooting only for an actual failure.
+5. Prioritize time to a usable connection. If mirroring drops during MFA, check the existing SSH session before more phone work and allow approval of the same Push directly on the phone.
+
+Each reconnect ends with a brief review of observed delays. With the user's ongoing maintenance authorization, the agent makes a small, evidence-backed local skill improvement when useful; it does not require a cosmetic rewrite after every run. Connection readiness is reported before maintenance. Reviews do not generate test Pushes, interrupt a healthy master, store private traces or automatically publish changes.
 
 ## Requirements and limits
 
