@@ -44,3 +44,5 @@ Allow normal App Server bootstrap/reconnect. Use bounded checks for up to two mi
 ## Explicit fault tests
 
 Prefer mocked missing-master/failure tests and a read-only live probe. Terminate a real shared master only when the user specifically asks for that fault simulation, after checking active clients and mirror readiness. `ssh -O exit ALIAS` disconnects all its clients. Do not disable Wi-Fi for an SSH-only test.
+
+Distinguish simulated SSH loss, actual network outage, active recovery and continuous monitoring. This skill does not schedule future runs or guarantee execution while the Mac is asleep/offline or the phone is away.
