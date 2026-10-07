@@ -18,6 +18,8 @@ Use one SSH PTY and the currently displayed Duo menu, with the mirror ready firs
 
 On a fresh Computer Use session establish the app binding through the documented entry point; do not assume a prior session's variable exists. Reuse the binding within that session. Follow required observations after actions, using screenshots where mirrored controls lack accessibility text. Do not capture/save unrelated phone contents or reveal passcodes.
 
+For a paused/disconnected existing mirror, try its currently visible Continue/Connect/Retry control once and inspect the result; do not repeat unchanged observations or start a pairing flow. After a Push is pending, a mirror interruption is not proof that Duo delivery or SSH failed. Poll the same SSH PTY first. If login has succeeded, skip all further phone work and verify SSH/Codex. Otherwise promptly offer direct approval of that same request on the phone. Use only one pending authentication session; cancel a timed-out/abandoned pre-authentication PTY before an authorized retry. A closed PTY requires a fresh session/menu, not blind input into the old one.
+
 Selecting Push is not login success. Match expected service/account/current attempt, approve under existing authorization, and verify the remote prompt. Stop on denial, ambiguous requests or an authentication policy block. [Duo macOS authentication](https://duo.com/docs/macos) is not Duo Mobile and will not supply SSH codes.
 
 ## inspect_transport / verify_host_key / inspect_remote_output
@@ -42,5 +44,3 @@ Allow normal App Server bootstrap/reconnect. Use bounded checks for up to two mi
 ## Explicit fault tests
 
 Prefer mocked missing-master/failure tests and a read-only live probe. Terminate a real shared master only when the user specifically asks for that fault simulation, after checking active clients and mirror readiness. `ssh -O exit ALIAS` disconnects all its clients. Do not disable Wi-Fi for an SSH-only test.
-
-Distinguish simulated SSH loss, actual network outage, active recovery and continuous monitoring. This skill does not schedule future runs or guarantee execution while the Mac is asleep/offline or the phone is away.
